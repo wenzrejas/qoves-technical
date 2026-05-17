@@ -1,0 +1,144 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  position: relative;
+  background-color: #9AAEB5;
+  background-image:
+    radial-gradient(ellipse at 50% 100%, rgba(60, 60, 60, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 80% at 50% 0%, rgba(60, 60, 60, 0.4) 0%, transparent 80%),
+    radial-gradient(ellipse at 50% 28%, #B0A098 0%, transparent 50%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+}
+
+.header {
+  @include container;
+  padding-top: $space-xl;
+  padding-bottom: $space-lg;
+  text-align: center;
+  position: relative;
+  z-index: $z-base;
+  flex-shrink: 0;
+}
+
+.label {
+  margin-bottom: $space-md;
+}
+
+.title {
+  @include heading-xl;
+  color: $color-dark-text;
+  margin-bottom: $space-md;
+}
+
+.italic {
+  font-style: normal;
+  color: $color-dark-text;
+  opacity: 0.5;
+}
+
+.body {
+  font-family: $font-sans;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: $color-dark-secondary;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+// ─── Canvas ────────────────────────────────────────────────────────────────────
+.canvas {
+  flex: 1;
+  position: relative;
+  min-height: 500px;
+}
+
+// ─── Face image ────────────────────────────────────────────────────────────────
+.faceContainer {
+  position: absolute;
+  top: -140px;
+  will-change: transform;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 920px;
+  height: 1020px;
+
+  @include respond-to(lg) {
+    top: 60px;
+    width: 620px;
+    height: 700px;
+  }
+
+  @include respond-to(md) {
+    top: 40px;
+    width: 100%;
+    max-width: 560px;
+    height: 620px;
+  }
+}
+
+.faceImage {
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+// ─── Chart overlays ────────────────────────────────────────────────────────────
+.chartScatterplot,
+.chartBellCurve,
+.chartBarGraph,
+.chartColorPalette,
+.chartFacialThirds,
+.chartHalfBlocks {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+.chartScatterplot {
+  left: calc(50% - 740px);
+  top: 350px;
+  width: 286px;
+  height: 338px;
+}
+
+.chartBellCurve {
+  left: calc(50% - 440px);
+  top: 350px;
+  width: 286px;
+  height: 198px;
+}
+
+.chartBarGraph {
+  left: calc(50% + 421px);
+  top: 526px;
+  width: 286px;
+  height: 157px;
+}
+
+.chartColorPalette {
+  left: calc(50% + 125px);
+  top: 350px;
+  width: 282px;
+  height: 338px;
+}
+
+.chartFacialThirds {
+  left: calc(50% + 421px);
+  top: 350px;
+  width: 353px;
+  height: 166px;
+}
+
+.chartHalfBlocks {
+  left: calc(50% - 440px);
+  top: 558px;
+  width: 285px;
+  height: 127px;
+}

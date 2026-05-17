@@ -1,0 +1,141 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-start;
+  background: $color-bg;
+}
+
+.inner {
+  @include container;
+  width: 100%;
+  padding-top: $space-xl;
+  padding-bottom: $space-xxl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xl;
+}
+
+.content {
+  text-align: center;
+  max-width: 760px;
+}
+
+.label {
+  margin-bottom: $space-md;
+}
+
+.title {
+  @include heading-xl;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.3em;
+  margin-bottom: $space-md;
+}
+
+.line {
+  display: inline-block;
+}
+
+.accent {
+  color: #9AAEB5;
+  font-style: normal;
+}
+
+.subtitle {
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #515255;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.sliderWrap {
+  width: 100%;
+}
+
+// ─── Steps ─────────────────────────────────────────────────────────────────────
+.steps {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.step {
+  position: relative;
+  height: 152px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(242, 242, 242, 1);
+  overflow: hidden;
+  transition: box-shadow $duration-base $ease-smooth,
+              border-color $duration-base $ease-smooth;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(148, 145, 140, 1) 0%, rgba(104, 130, 143, 1) 100%);
+    opacity: 0;
+    transition: opacity $duration-base $ease-smooth;
+  }
+
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0px 20px 32px -20px #0000004D;
+
+    &::before { opacity: 1; }
+    .stepLabel { color: #ffffff; }
+  }
+}
+
+.stepNum {
+  position: relative;
+  z-index: 1;
+}
+
+.stepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  padding: 2px;
+  background: rgba(154, 174, 181, 1);
+  font-family: $font-mono;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.005em;
+  color: #ffffff;
+}
+
+.stepLabel {
+  position: relative;
+  z-index: 1;
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: rgba(35, 49, 55, 1);
+  white-space: pre-line;
+}

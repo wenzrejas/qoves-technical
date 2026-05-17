@@ -1,0 +1,67 @@
+@use '../../../styles/variables' as *;
+
+// SVG viewBox: -11.5 -11.5 1012 414
+// Left box:  x[0,344],  y[0,391] → 34% of 988 content width
+// Bridge:    x[344,644], middle only
+// Right box: x[644,988], y[0,391] → 34% of 988 content width
+// ViewBox padding (11.5 / 1012) ≈ 1.14% per side
+
+.comparison {
+  position: relative;
+  width: 100%;
+}
+
+.svgFrame {
+  display: block;
+  width: 100%;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Absolute overlay that aligns exactly with the SVG boxes
+.panels {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 344fr 300fr 344fr;
+  padding: 1.14%; // matches SVG viewBox offset on all sides
+}
+
+.bridge {
+  // empty spacer — the SVG bridge decorates this gap
+}
+
+.panel {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(174, 194, 201, 1);
+  margin: 10px;
+}
+
+// Before/After labels
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: $z-overlay;
+  font-family: $font-mono;
+  font-size: 16.15px;
+  font-weight: 400;
+  line-height: 18.84px;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center top;
+  top: 26px !important;
+}
