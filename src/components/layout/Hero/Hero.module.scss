@@ -54,16 +54,12 @@
 }
 
 .accent {
-  color: #9AAEB5;
+  color: #9aaeb5;
   font-style: normal;
 }
 
 .subtitle {
-  font-family: $font-sans;
-  font-weight: 400;
-  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
-  line-height: 1.5;
-  letter-spacing: 0;
+  @include body-text;
   text-align: center;
   color: #515255;
   max-width: 480px;
@@ -81,14 +77,18 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 
-  @include respond-to(md) { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @include respond-to(xs) {
     display: flex;
     overflow-x: auto;
     scrollbar-width: none;
 
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -102,10 +102,17 @@
   border-radius: 12px;
   border: 1px solid rgba($color-border, 0.4);
   overflow: hidden;
-  transition: box-shadow $duration-base $ease-smooth,
-              border-color $duration-base $ease-smooth;
+  transition:
+    box-shadow $duration-base $ease-smooth,
+    border-color $duration-base $ease-smooth;
 
-  @include respond-to(xs) { flex-shrink: 0; width: 72vw; height: auto; min-height: 120px; gap: $space-md; }
+  @include respond-to(xs) {
+    flex-shrink: 0;
+    width: 72vw;
+    height: auto;
+    min-height: 120px;
+    gap: $space-md;
+  }
 
   &::before {
     content: '';
@@ -118,19 +125,20 @@
 
   &:hover {
     border-color: transparent;
-    box-shadow: 0px 20px 32px -20px #0000004D;
+    box-shadow: 0px 20px 32px -20px #0000004d;
 
-    &::before { opacity: 1; }
-    .stepLabel { color: #ffffff; }
+    &::before {
+      opacity: 1;
+    }
+    .stepLabel {
+      color: #ffffff;
+    }
   }
 }
 
 .stepNum {
   position: relative;
   z-index: 1;
-}
-
-.stepNum {
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -1,54 +1,54 @@
 // ─── Colors ───────────────────────────────────────────────────────────────────
-$color-bg:              #F8F8F5;
-$color-bg-alt:          #FFFFFF;
-$color-text:            #1A1918;
-$color-text-secondary:  #6B6862;
-$color-text-label:      #A8A8A0;
-$color-dark-bg:         #2B3A40;
-$color-dark-text:       #F0EEE8;
-$color-dark-secondary:  rgba(240, 238, 232, 0.65);
-$color-border:          #E5E4DE;
-$color-border-dark:     rgba(240, 238, 232, 0.15);
-$color-white:           #FFFFFF;
-$color-overlay:         rgba(27, 25, 24, 0.45);
+$color-bg: #f8f8f5;
+$color-bg-alt: #ffffff;
+$color-text: #1a1918;
+$color-text-secondary: #6b6862;
+$color-text-label: #a8a8a0;
+$color-dark-bg: #2b3a40;
+$color-dark-text: #f0eee8;
+$color-dark-secondary: rgba(240, 238, 232, 0.65);
+$color-border: #e5e4de;
+$color-border-dark: rgba(240, 238, 232, 0.15);
+$color-white: #ffffff;
+$color-overlay: rgba(27, 25, 24, 0.45);
 
 // ─── Typography ────────────────────────────────────────────────────────────────
-$font-sans:  var(--font-pp-neue-montreal);
-$font-mono:  var(--font-zagma-mono);
+$font-sans: var(--font-pp-neue-montreal);
+$font-mono: var(--font-zagma-mono);
 
 // ─── Spacing scale ─────────────────────────────────────────────────────────────
-$space-xs:   8px;
-$space-sm:   16px;
-$space-md:   24px;
-$space-lg:   48px;
-$space-xl:   60px;
-$space-xxl:  120px;
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 48px;
+$space-xl: 60px;
+$space-xxl: 120px;
 $space-hero: 160px;
 
 // ─── Layout ────────────────────────────────────────────────────────────────────
-$container-max:     1360px;
+$container-max: 1360px;
 $container-padding: 80px;
-$container-sm:      72px;
+$container-sm: 72px;
 
 // ─── Easing ────────────────────────────────────────────────────────────────────
-$ease-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+$ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
 $ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
 // ─── Transitions ───────────────────────────────────────────────────────────────
-$duration-fast:   200ms;
-$duration-base:   350ms;
-$duration-slow:   600ms;
+$duration-fast: 200ms;
+$duration-base: 350ms;
+$duration-slow: 600ms;
 $duration-slower: 900ms;
 
 // ─── Breakpoints ───────────────────────────────────────────────────────────────
-$bp-xs:  430px;   // mobile
-$bp-md:  768px;   // tablet
-$bp-lg:  1440px;  // large desktop
-$bp-xl:  1920px;  // ultra-wide
+$bp-xs: 430px; // mobile
+$bp-md: 768px; // tablet
+$bp-lg: 1440px; // large desktop
+$bp-xl: 1920px; // ultra-wide
 
 // ─── Z-index ───────────────────────────────────────────────────────────────────
-$z-base:    1;
+$z-base: 1;
 $z-overlay: 10;
-$z-modal:   100;
-$z-nav:     200;
+$z-modal: 100;
+$z-nav: 200;

@@ -1,7 +1,9 @@
 @use '../styles/variables' as *;
 
 // ─── Reset ─────────────────────────────────────────────────────────────────────
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -22,7 +24,8 @@ body {
   font-smooth: never;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   display: block;
 }
@@ -40,14 +43,15 @@ a {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
 // ─── Scrollbar ─────────────────────────────────────────────────────────────────
 :root {
   scrollbar-width: thin;
-  scrollbar-color: #C8C7C0 #F8F8F5;
+  scrollbar-color: #c8c7c0 #f8f8f5;
 }
 
 ::-webkit-scrollbar {
@@ -59,11 +63,11 @@ ul, ol {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #C8C7C0;
+  background-color: #c8c7c0;
   border-radius: 9999px;
 
   &:hover {
-    background-color: #9AAEB5;
+    background-color: #9aaeb5;
   }
 }
 

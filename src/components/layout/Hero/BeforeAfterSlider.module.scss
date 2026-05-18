@@ -1,12 +1,6 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-// SVG viewBox: -11.5 -11.5 1012 414
-// Left box:  x[0,344],  y[0,391] → 34% of 988 content width
-// Bridge:    x[344,644], middle only
-// Right box: x[644,988], y[0,391] → 34% of 988 content width
-// ViewBox padding (11.5 / 1012) ≈ 1.14% per side
-
 .comparison {
   position: relative;
   width: 100%;
@@ -71,11 +65,6 @@
   top: 26px !important;
 }
 
-// ─── Portrait / mobile layout (≤425px — tablet stays landscape) ──────────────
-// Container takes portrait aspect ratio (inverse of the SVG's landscape ratio).
-// SVG viewBox 1012×414: after rotate(90deg) visual dims become 414×1012,
-// then scale(1012/414 ≈ 2.447) stretches it back to fill the portrait container.
-// Panels grid switches from columns to rows to match the rotated layout.
 @include respond-to(xs) {
   .comparison {
     aspect-ratio: 414 / 1012;

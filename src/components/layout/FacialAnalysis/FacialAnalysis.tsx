@@ -2,12 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import Badge from '@/components/ui/Badge/Badge';
 import styles from './FacialAnalysis.module.scss';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function FacialAnalysis() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -36,7 +33,6 @@ export default function FacialAnalysis() {
       }).from(imageRef.current, { y: 40, opacity: 0, duration: 1.2, ease: 'power2.out' }, '-=0.5');
     }, sectionRef);
 
-    // Parallax scrub causes jank on touch devices — desktop only
     const mm = gsap.matchMedia();
     mm.add('(min-width: 769px)', () => {
       gsap.fromTo(
@@ -68,21 +64,56 @@ export default function FacialAnalysis() {
           Personalized Aesthetics
         </Badge>
         <h2 ref={titleRef} className={styles.title}>
-          Your complete{' '}
-          <em className={styles.italic}>facial analysis</em>
+          Your complete <em className={styles.italic}>facial analysis</em>
         </h2>
         <p ref={bodyRef} className={styles.body}>
-          Every face is unique. We assess more than 100 unique facial markers to
-          give you a precise understanding of your aesthetics.
+          Every face is unique. We assess more than 100 unique facial markers to give you a precise
+          understanding of your aesthetics.
         </p>
       </div>
 
-      <img src="/svg/chart-scatterplot.svg" alt="" aria-hidden className={styles.chartScatterplot} />
-      <img src="/svg/chart-bell-curve.svg" alt="" aria-hidden className={styles.chartBellCurve} />
-      <img src="/svg/chart-bar-graph.svg" alt="" aria-hidden className={styles.chartBarGraph} />
-      <img src="/svg/chart-color-palette.svg" alt="" aria-hidden className={styles.chartColorPalette} />
-      <img src="/svg/chart-facial-thirds.svg" alt="" aria-hidden className={styles.chartFacialThirds} />
-      <img src="/svg/chart-half-blocks.svg" alt="" aria-hidden className={styles.chartHalfBlocks} />
+      <img
+        src="/svg/chart-scatterplot.svg"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className={styles.chartScatterplot}
+      />
+      <img
+        src="/svg/chart-bell-curve.svg"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className={styles.chartBellCurve}
+      />
+      <img
+        src="/svg/chart-bar-graph.svg"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className={styles.chartBarGraph}
+      />
+      <img
+        src="/svg/chart-color-palette.svg"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className={styles.chartColorPalette}
+      />
+      <img
+        src="/svg/chart-facial-thirds.svg"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className={styles.chartFacialThirds}
+      />
+      <img
+        src="/svg/chart-half-blocks.svg"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className={styles.chartHalfBlocks}
+      />
 
       <div className={styles.canvas}>
         <div ref={imageRef} className={styles.faceContainer}>

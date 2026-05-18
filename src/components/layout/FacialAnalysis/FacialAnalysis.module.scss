@@ -3,11 +3,11 @@
 
 .section {
   position: relative;
-  background-color: #9AAEB5;
+  background-color: #9aaeb5;
   background-image:
     radial-gradient(ellipse at 50% 100%, rgba(60, 60, 60, 1) 0%, transparent 50%),
     radial-gradient(ellipse 80% 80% at 50% 0%, rgba(60, 60, 60, 0.4) 0%, transparent 80%),
-    radial-gradient(ellipse at 50% 28%, #B0A098 0%, transparent 50%);
+    radial-gradient(ellipse at 50% 28%, #b0a098 0%, transparent 50%);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -19,15 +19,11 @@
     background-image:
       radial-gradient(ellipse 220% 70% at 50% 100%, rgba(60, 60, 60, 1) 0%, transparent 70%),
       radial-gradient(ellipse 220% 80% at 50% 0%, rgba(60, 60, 60, 0.4) 0%, transparent 90%),
-      radial-gradient(ellipse 200% 60% at 50% 35%, #B0A098 0%, transparent 60%);
+      radial-gradient(ellipse 200% 60% at 50% 35%, #b0a098 0%, transparent 60%);
   }
 
   @include respond-to(xs) {
     min-height: 90svh;
-    background-image:
-      radial-gradient(ellipse 220% 70% at 50% 100%, rgba(60, 60, 60, 1) 0%, transparent 70%),
-      radial-gradient(ellipse 220% 80% at 50% 0%, rgba(60, 60, 60, 0.4) 0%, transparent 90%),
-      radial-gradient(ellipse 200% 60% at 50% 35%, #B0A098 0%, transparent 60%);
   }
 }
 
@@ -40,8 +36,14 @@
   z-index: $z-base;
   flex-shrink: 0;
 
-  @include respond-to(md) { padding-top: $space-xl; padding-bottom: $space-md; }
-  @include respond-to(xs) { padding-top: $space-xl; padding-bottom: $space-sm; }
+  @include respond-to(md) {
+    padding-top: $space-xl;
+    padding-bottom: $space-md;
+  }
+  @include respond-to(xs) {
+    padding-top: $space-xl;
+    padding-bottom: $space-sm;
+  }
 }
 
 .label {
@@ -61,11 +63,7 @@
 }
 
 .body {
-  font-family: $font-sans;
-  font-weight: 400;
-  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
-  line-height: 1.5;
-  letter-spacing: 0;
+  @include body-text;
   text-align: center;
   color: $color-dark-secondary;
   max-width: 500px;

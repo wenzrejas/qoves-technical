@@ -2,17 +2,16 @@
 
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Lenis smooth scroll is desktop-only — touch devices use native scroll
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      return () => { ScrollTrigger.normalizeScroll(false); };
+      return;
     }
+
+    ScrollTrigger.normalizeScroll(true);
 
     const lenis = new Lenis({
       prevent: (node: Element) => !!node.closest('[data-horizontal-scroll]'),

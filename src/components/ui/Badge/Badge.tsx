@@ -13,11 +13,9 @@ const Badge = forwardRef<HTMLParagraphElement, BadgeProps>(
   ({ children, className, variant = 'default' }, ref) => (
     <p
       ref={ref}
-      className={[
-        styles.badge,
-        variant === 'secondary' ? styles.secondary : '',
-        className ?? '',
-      ].filter(Boolean).join(' ')}
+      className={[styles.badge, variant === 'secondary' ? styles.secondary : '', className ?? '']
+        .filter(Boolean)
+        .join(' ')}
     >
       {children}
     </p>

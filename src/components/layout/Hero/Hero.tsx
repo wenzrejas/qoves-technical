@@ -41,7 +41,9 @@ export default function Hero() {
     <section ref={sectionRef} className={styles.hero}>
       <div className={styles.inner}>
         <div className={styles.content}>
-          <Badge ref={labelRef} className={styles.label}>Personalized Analysis</Badge>
+          <Badge ref={labelRef} className={styles.label}>
+            Personalized Analysis
+          </Badge>
 
           <h1 ref={titleRef} className={styles.title}>
             <span className={styles.line}>Get your personalised</span>{' '}
@@ -49,8 +51,8 @@ export default function Hero() {
           </h1>
 
           <p ref={subtitleRef} className={styles.subtitle}>
-            Understand your facial features and start your glow-up today
-            with a proven action plan, no plastic surgery needed.
+            Understand your facial features and start your glow-up today with a proven action plan,
+            no plastic surgery needed.
           </p>
         </div>
 

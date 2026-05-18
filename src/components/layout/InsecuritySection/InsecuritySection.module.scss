@@ -22,7 +22,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: none;
 }
 
 .bgOverlay {
@@ -30,7 +29,7 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(26, 25, 24, 0.1)  0%,
+    rgba(26, 25, 24, 0.1) 0%,
     rgba(26, 25, 24, 0.38) 50%,
     rgba(26, 25, 24, 0.68) 100%
   );
@@ -58,12 +57,17 @@
   display: flex;
   flex-direction: column;
 
-  @include respond-to(md) { height: auto; min-height: 100svh; }
+  @include respond-to(md) {
+    height: auto;
+    min-height: 100svh;
+  }
 }
 
 // Panel 2 must keep fixed height so GSAP pin works correctly
 .panel2 {
-  @include respond-to(md) { height: 100svh; }
+  @include respond-to(md) {
+    height: 100svh;
+  }
 }
 
 // ─── Inner container ───────────────────────────────────────────────────────────
@@ -75,10 +79,6 @@
   padding-top: $space-xl;
   padding-bottom: 0;
 
-  // On tablet/mobile, centre badge+content vertically and horizontally;
-  // auto margins on badgeWrap and cards handle the vertical distribution.
-  // height must be explicit (not 100%) because .panel is height:auto on md,
-  // which makes 100% resolve to content height — auto-margins need real free space.
   @include respond-to(md) {
     padding-top: 0;
     height: 100svh;
@@ -93,7 +93,7 @@
   padding-inline: $space-md;
 
   @include respond-to(md) {
-    margin-top: auto; // splits free space: half above badge, half above cards
+    margin-top: auto;
     padding-inline: 0;
     margin-bottom: $space-md;
     display: flex;
@@ -127,7 +127,9 @@
   gap: 2px;
   margin-bottom: $space-sm;
 
-  @include respond-to(md) { align-items: center; }
+  @include respond-to(md) {
+    align-items: center;
+  }
 }
 
 .headingLine {
@@ -140,15 +142,14 @@
 }
 
 .body {
-  font-family: $font-sans;
-  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0;
+  @include body-text;
   color: $color-white;
   max-width: 500px;
 
-  @include respond-to(md) { max-width: 560px; margin-inline: auto; }
+  @include respond-to(md) {
+    max-width: 560px;
+    margin-inline: auto;
+  }
 }
 
 // ─── Panel 1: cards ────────────────────────────────────────────────────────────
@@ -171,7 +172,9 @@
     padding-bottom: $space-md;
     scrollbar-width: none;
 
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   @include respond-to(xs) {
@@ -241,7 +244,7 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-// ─── Panel 2: philosophy ───────────────────────────────────────────────────────
+// ─── Panel 2 ───────────────────────────────────────────────────────
 .panel2 {
   position: relative;
   z-index: 2;
@@ -271,7 +274,7 @@
   }
 }
 
-// ─── Glass cards (consider + key) — absolutely positioned on sides ─────────────
+// ─── Glass cards ─────────────
 .glassCard {
   position: absolute;
   z-index: 1;
@@ -285,10 +288,18 @@
   flex-direction: column;
   justify-content: space-between;
 
-  &:first-child { left: max(#{$container-padding}, calc((100% - #{$container-max}) / 2 + #{$container-padding})); }
-  &:last-child  { right: max(#{$container-padding}, calc((100% - #{$container-max}) / 2 + #{$container-padding})); }
+  &:first-child {
+    left: max(#{$container-padding}, calc((100% - #{$container-max}) / 2 + #{$container-padding}));
+  }
+  &:last-child {
+    right: max(#{$container-padding}, calc((100% - #{$container-max}) / 2 + #{$container-padding}));
+  }
 
-  @include respond-to(lg) { width: 360px; height: 360px; top: calc(50% - 180px); }
+  @include respond-to(lg) {
+    width: 360px;
+    height: 360px;
+    top: calc(50% - 180px);
+  }
   @include respond-to(md) {
     position: static;
     width: auto;
@@ -298,14 +309,14 @@
     flex: 0 0 78%;
     scroll-snap-align: start;
   }
-  @include respond-to(xs) { flex: 0 0 84%; min-height: 320px; }
+  @include respond-to(xs) {
+    flex: 0 0 84%;
+    min-height: 320px;
+  }
 }
 
 // ─── Glass cards carousel (mobile/tablet) ──────────────────────────────────────
 .glassCards {
-  // Desktop: no explicit styles — block-level, position:static so glass cards
-  // remain positioned relative to .philosophyGrid (nearest positioned ancestor).
-
   @include respond-to(md) {
     display: flex;
     flex-wrap: nowrap;
@@ -321,7 +332,9 @@
     margin-bottom: $space-lg;
     scrollbar-width: none;
 
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   @include respond-to(xs) {
@@ -381,7 +394,10 @@
     margin-inline: 0;
     max-width: 100%;
   }
-  @include respond-to(xs) { padding-inline: $space-sm; gap: $space-sm; }
+  @include respond-to(xs) {
+    padding-inline: $space-sm;
+    gap: $space-sm;
+  }
 }
 
 .vainHeading {
@@ -401,11 +417,7 @@
 }
 
 .vainBody {
-  font-family: $font-sans;
-  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0;
+  @include body-text;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
   max-width: 560px;

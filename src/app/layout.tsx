@@ -93,17 +93,11 @@ export const metadata: Metadata = {
     'Understand your facial features and start your glow-up today with a proven action plan. No plastic surgery needed.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${ppNeueMontreal.variable} ${zagmaMono.variable}`}
-    >
+    <html lang="en" className={`${ppNeueMontreal.variable} ${zagmaMono.variable}`}>
       <body suppressHydrationWarning>
-        {/* <SmoothScroll>{children}</SmoothScroll> */}
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

@@ -2,13 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Plus, Minus, X } from 'react-feather';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '@/lib/gsap';
 import { type FAQItem, type FAQCategory, faqCategories } from '@/data/faq';
 import Badge from '@/components/ui/Badge/Badge';
 import styles from './FAQ.module.scss';
-
-gsap.registerPlugin(ScrollTrigger);
 
 // ─── Inner Q&A row ─────────────────────────────────────────────────────────────
 function QAItem({
@@ -46,9 +43,7 @@ function QAItem({
       <button className={styles.qaQuestion} onClick={onToggle}>
         <span className={styles.qaText}>{item.q}</span>
         <span className={styles.qaIcon}>
-          {isOpen
-            ? <Minus size={20} strokeWidth={1.5} />
-            : <Plus size={20} strokeWidth={1.5} />}
+          {isOpen ? <Minus size={20} strokeWidth={1.5} /> : <Plus size={20} strokeWidth={1.5} />}
         </span>
       </button>
 
@@ -103,9 +98,7 @@ function CategoryRow({
       <button className={styles.catHeader} onClick={onToggle}>
         <span className={styles.catTitle}>{category.title}</span>
         <span className={styles.catIcon}>
-          {isOpen
-            ? <X size={18} strokeWidth={1.5} />
-            : <Plus size={18} strokeWidth={1.5} />}
+          {isOpen ? <X size={18} strokeWidth={1.5} /> : <Plus size={18} strokeWidth={1.5} />}
         </span>
       </button>
 
@@ -165,21 +158,18 @@ export default function FAQ() {
         },
       });
 
-      gsap.from(
-        listRef.current?.querySelectorAll(`.${styles.category}`) ?? [],
-        {
-          y: 16,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.045,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: listRef.current,
-            start: 'top 78%',
-            once: true,
-          },
-        }
-      );
+      gsap.from(listRef.current?.querySelectorAll(`.${styles.category}`) ?? [], {
+        y: 16,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.045,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: listRef.current,
+          start: 'top 78%',
+          once: true,
+        },
+      });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -188,13 +178,15 @@ export default function FAQ() {
     <section ref={sectionRef} id="faq" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.headerArea}>
-          <Badge ref={labelRef} className={styles.label}>Your Questions</Badge>
+          <Badge ref={labelRef} className={styles.label}>
+            Your Questions
+          </Badge>
           <h2 ref={titleRef} className={styles.title}>
             Frequently asked <em className={styles.italic}>questions</em>
           </h2>
           <p ref={subtitleRef} className={styles.subtitle}>
-            If you have any further questions, please use the chat box in the bottom
-            right or contact us by email at{' '}
+            If you have any further questions, please use the chat box in the bottom right or
+            contact us by email at{' '}
             <a href="mailto:hello@qoves.com" className={styles.emailLink}>
               hello@qoves.com
             </a>

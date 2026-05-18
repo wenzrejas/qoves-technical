@@ -1,19 +1,22 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-// Active card — Figma specs: bg #9AAEB5, padding 8px, box-shadow with 10% opacity
-$color-active:  #9AAEB5;
+$color-active: #9aaeb5;
 $active-shadow: 0px 14px 17.5px 0px rgba(154, 174, 181, 0.102);
-$active-text:   rgba(255, 255, 255, 0.95);
-$active-muted:  rgba(255, 255, 255, 0.6);
+$active-text: rgba(255, 255, 255, 0.95);
+$active-muted: rgba(255, 255, 255, 0.6);
 $active-border: rgba(255, 255, 255, 0.18);
 
 .section {
   background: $color-bg;
   padding: $space-xxl 0;
 
-  @include respond-to(md) { padding: $space-lg 0; }
-  @include respond-to(xs) { padding: $space-xl 0; }
+  @include respond-to(md) {
+    padding: $space-lg 0;
+  }
+  @include respond-to(xs) {
+    padding: $space-xl 0;
+  }
 }
 
 .inner {
@@ -42,15 +45,11 @@ $active-border: rgba(255, 255, 255, 0.18);
 .italic {
   font-style: normal;
   font-size: inherit;
-  color: #9AAEB5;
+  color: #9aaeb5;
 }
 
 .subtitle {
-  font-family: $font-sans;
-  font-weight: 400;
-  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
-  line-height: 1.5;
-  letter-spacing: 0;
+  @include body-text;
   text-align: center;
   color: #515255;
 }
@@ -75,11 +74,14 @@ $active-border: rgba(255, 255, 255, 0.18);
   background: transparent;
   padding: 8px;
   border-radius: 6px;
-  transition: background $duration-slow $ease-smooth,
-              border-radius $duration-slow $ease-smooth,
-              box-shadow $duration-slow $ease-smooth;
+  transition:
+    background $duration-slow $ease-smooth,
+    border-radius $duration-slow $ease-smooth,
+    box-shadow $duration-slow $ease-smooth;
 
-  &:not(.categoryOpen):hover { background: rgba(0, 0, 0, 0.04); }
+  &:not(.categoryOpen):hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
 }
 
 .categoryOpen {
@@ -87,7 +89,7 @@ $active-border: rgba(255, 255, 255, 0.18);
   background-image:
     radial-gradient(ellipse at 50% 100%, rgba(60, 60, 60, 0.1) 0%, transparent 80%),
     radial-gradient(ellipse 80% 80% at 50% 0%, rgba(60, 60, 60, 0.25) 0%, transparent 100%),
-    radial-gradient(ellipse at 50% 28%, #B0A098 0%, transparent 40%);
+    radial-gradient(ellipse at 50% 28%, #b0a098 0%, transparent 40%);
   border-radius: 8px;
   border-bottom-color: transparent;
   padding: 8px;
@@ -96,18 +98,38 @@ $active-border: rgba(255, 255, 255, 0.18);
   z-index: 1;
 
   // ── text overrides inside the active card ──
-  .catTitle  { color: $active-text; }
-  .catIcon   { color: $active-text; }
-  .qaList    { border-top-color: $active-border; }
-  .qaItem    { border-bottom-color: $active-border; }
-  .qaText    { color: $active-text; }
-  .qaIcon    { color: $active-text; }
-  .qaAnswer  { color: $active-text; }
+  .catTitle {
+    color: $active-text;
+  }
+  .catIcon {
+    color: $active-text;
+  }
+  .qaList {
+    border-top-color: $active-border;
+  }
+  .qaItem {
+    border-bottom-color: $active-border;
+  }
+  .qaText {
+    color: $active-text;
+  }
+  .qaIcon {
+    color: $active-text;
+  }
+  .qaAnswer {
+    color: $active-text;
+  }
 
   // hover & open states inside the card
-  .qaQuestion:hover .qaText         { color: $active-text; }
-  .qaItemOpen .qaText               { color: $active-text; }
-  .qaItemOpen .qaIcon               { color: rgba(255, 255, 255, 0.8); }
+  .qaQuestion:hover .qaText {
+    color: $active-text;
+  }
+  .qaItemOpen .qaText {
+    color: $active-text;
+  }
+  .qaItemOpen .qaIcon {
+    color: rgba(255, 255, 255, 0.8);
+  }
 }
 
 // ─── Category header ───────────────────────────────────────────────────────────
@@ -127,8 +149,10 @@ $active-border: rgba(255, 255, 255, 0.18);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0;
-  color: $color-text;
-  transition: color $duration-base $ease-smooth, opacity $duration-fast $ease-smooth;
+  color: rgba(35, 49, 55, 1);
+  transition:
+    color $duration-base $ease-smooth,
+    opacity $duration-fast $ease-smooth;
 }
 
 .catIcon {
@@ -141,16 +165,17 @@ $active-border: rgba(255, 255, 255, 0.18);
   height: 24px;
   transition: color $duration-base $ease-smooth;
 
-  svg { display: block; }
+  svg {
+    display: block;
+  }
 }
 
 // ─── Q&A list ──────────────────────────────────────────────────────────────────
 .qaList {
   padding: 8px;
   border-radius: 8px;
-  background: #FFFFFF33;
+  background: #ffffff33;
   backdrop-filter: blur(100px);
-  padding-bottom: 8px;
   transition: border-color $duration-base $ease-smooth;
 }
 
@@ -160,7 +185,9 @@ $active-border: rgba(255, 255, 255, 0.18);
   padding: 12px;
   transition: border-color $duration-base $ease-smooth;
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .qaItemOpen {
@@ -169,24 +196,24 @@ $active-border: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(100px);
   box-shadow: 0px 16px 16px 0px #23313708;
 
-  .qaText { color: $color-text; }
+  .qaText {
+    color: $color-text;
+  }
 }
 
 .qaQuestion {
+  @include body-text;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: $space-sm;
-  font-family: $font-sans;
-  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0;
   color: $color-text-secondary;
   text-align: left;
 
-  &:hover .qaText { color: $color-text; }
+  &:hover .qaText {
+    color: $color-text;
+  }
 }
 
 .qaText {
@@ -204,9 +231,13 @@ $active-border: rgba(255, 255, 255, 0.18);
   height: 20px;
   transition: color $duration-fast $ease-smooth;
 
-  svg { display: block; }
+  svg {
+    display: block;
+  }
 
-  .qaItemOpen & { color: $color-text-secondary; }
+  .qaItemOpen & {
+    color: $color-text-secondary;
+  }
 }
 
 .qaBody {

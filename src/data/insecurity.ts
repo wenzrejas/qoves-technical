@@ -31,3 +31,10 @@ export const considerations: string[] = [
   'It has a considerable impact on interpersonal interactions',
   'Small improvements can drastically impact quality of life',
 ];
+
+export const principles: string[] = [
+  'Not chasing unrealistic standards',
+  'Not trying to look like someone else',
+  'Not seeking perfection',
+  'Aiming only for a better version of yourself',
+];
