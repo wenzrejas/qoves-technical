@@ -18,18 +18,6 @@ export default function PhilosophySection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Parallax on bg
-      gsap.to(`.${styles.bg}`, {
-        yPercent: 15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-
       const st = {
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -51,7 +39,25 @@ export default function PhilosophySection() {
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    // BG parallax scrub causes jank on touch devices — desktop only
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 769px)', () => {
+      gsap.to(`.${styles.bg}`, {
+        yPercent: 15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+
+    return () => {
+      ctx.revert();
+      mm.revert();
+    };
   }, []);
 
   return (

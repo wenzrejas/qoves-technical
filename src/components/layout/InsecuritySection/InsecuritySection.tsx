@@ -28,8 +28,8 @@ export default function InsecuritySection() {
   const keyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Panel 1 entrance — same on all devices
     const ctx = gsap.context(() => {
-      // Panel 1 entrance
       const tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -52,7 +52,14 @@ export default function InsecuritySection() {
           { y: 60, opacity: 0, duration: 0.8, stagger: 0.1 },
           '-=0.4'
         );
+    }, sectionRef);
 
+    // Panel 2 behaviour differs between desktop and mobile.
+    // On mobile, position:fixed pins glitch on iOS and the 350% scroll
+    // distance is unusable — show content with a simple entrance instead.
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 769px)', () => {
       // Blur scrubs in as Panel 2 enters
       gsap.fromTo(blurRef.current, { opacity: 0 }, {
         opacity: 1,
@@ -108,13 +115,40 @@ export default function InsecuritySection() {
 
         // ── Final hold before pin releases ──
         .to({}, { duration: 0.5 }, 8.0);
-    }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    mm.add('(max-width: 768px)', () => {
+      gsap.fromTo(blurRef.current, { opacity: 0 }, {
+        opacity: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: panel2Ref.current,
+          start: 'top 80%',
+          end: 'top 20%',
+          scrub: 0.6,
+        },
+      });
+
+      gsap.from(vainRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: panel2Ref.current,
+          start: 'top 70%',
+          once: true,
+        },
+      });
+    });
+
+    return () => {
+      ctx.revert();
+      mm.revert();
+    };
   }, []);
 
   return (
-    <>
     <section ref={sectionRef} className={styles.section}>
       {/* Sticky pinned video */}
       <div className={styles.stickyBg}>
@@ -131,7 +165,7 @@ export default function InsecuritySection() {
         <div className={styles.panel}>
           <div className={styles.inner}>
             <div ref={badgeRef} className={styles.badgeWrap}>
-              <Badge variant="secondary">Your Questions</Badge>
+              <Badge variant="secondary">Backed by 2000+ Research Papers</Badge>
             </div>
 
             <div className={styles.content}>
@@ -146,7 +180,7 @@ export default function InsecuritySection() {
               </p>
             </div>
 
-            <div ref={cardsRef} className={styles.cards}>
+            <div ref={cardsRef} className={styles.cards} data-horizontal-scroll>
               {factorCards.map((card) => (
                 <article key={card.id} className={styles.card}>
                   <div className={styles.cardImgWrap}>
@@ -172,15 +206,6 @@ export default function InsecuritySection() {
         <div ref={panel2Ref} className={`${styles.panel} ${styles.panel2}`}>
           <div className={styles.inner}>
             <div className={styles.philosophyGrid}>
-              <div ref={considerRef} className={styles.glassCard}>
-                <h3 className={styles.glassCardTitle}>Consider this...</h3>
-                <ul className={styles.pillList}>
-                  {considerations.map((item) => (
-                    <li key={item} className={styles.pill}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
               <div ref={vainRef} className={styles.vainWrap}>
                 <h2 className={styles.vainHeading}>
                   <span>Is it vain to care</span>
@@ -194,19 +219,29 @@ export default function InsecuritySection() {
                 </p>
               </div>
 
-              <div ref={keyRef} className={styles.glassCard}>
-                <h3 className={styles.glassCardTitle}>The key is approaching it intelligently</h3>
-                <ul className={styles.pillList}>
-                  {principles.map((p) => (
-                    <li key={p} className={styles.pill}>{p}</li>
-                  ))}
-                </ul>
+              <div className={styles.glassCards} data-horizontal-scroll>
+                <div ref={considerRef} className={styles.glassCard}>
+                  <h3 className={styles.glassCardTitle}>Consider this...</h3>
+                  <ul className={styles.pillList}>
+                    {considerations.map((item) => (
+                      <li key={item} className={styles.pill}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div ref={keyRef} className={styles.glassCard}>
+                  <h3 className={styles.glassCardTitle}>The key is approaching it intelligently</h3>
+                  <ul className={styles.pillList}>
+                    {principles.map((p) => (
+                      <li key={p} className={styles.pill}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    </>
   );
 }

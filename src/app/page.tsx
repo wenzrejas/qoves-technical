@@ -10,6 +10,7 @@ export default function Page() {
       <FacialAnalysis />
       <FAQ />
       <InsecuritySection />
+      <div style={{'height': '10svh'}}></div>
     </main>
   );
 }

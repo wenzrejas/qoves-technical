@@ -11,6 +11,9 @@ $active-border: rgba(255, 255, 255, 0.18);
 .section {
   background: $color-bg;
   padding: $space-xxl 0;
+
+  @include respond-to(md) { padding: $space-lg 0; }
+  @include respond-to(xs) { padding: $space-xl 0; }
 }
 
 .inner {
@@ -45,8 +48,8 @@ $active-border: rgba(255, 255, 255, 0.18);
 .subtitle {
   font-family: $font-sans;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
+  line-height: 1.5;
   letter-spacing: 0;
   text-align: center;
   color: #515255;
@@ -120,9 +123,9 @@ $active-border: rgba(255, 255, 255, 0.18);
 
 .catTitle {
   font-family: $font-sans;
-  font-size: 20px;
+  font-size: clamp(16px, 0.38vw + 14.5px, 20px);
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1.2;
   letter-spacing: 0;
   color: $color-text;
   transition: color $duration-base $ease-smooth, opacity $duration-fast $ease-smooth;
@@ -162,7 +165,7 @@ $active-border: rgba(255, 255, 255, 0.18);
 
 .qaItemOpen {
   border: unset;
-  background: #FFFFFF33;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(100px);
   box-shadow: 0px 16px 16px 0px #23313708;
 
@@ -176,10 +179,10 @@ $active-border: rgba(255, 255, 255, 0.18);
   justify-content: space-between;
   gap: $space-sm;
   font-family: $font-sans;
-  font-size: 16px;
+  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
+  line-height: 1.5;
+  letter-spacing: 0;
   color: $color-text-secondary;
   text-align: left;
 
@@ -214,9 +217,9 @@ $active-border: rgba(255, 255, 255, 0.18);
   padding-top: 12px;
   font-family: $font-sans;
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 20px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   color: $color-text-secondary;
   max-width: 95%;
   transition: color $duration-base $ease-smooth;

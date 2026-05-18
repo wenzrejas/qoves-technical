@@ -9,18 +9,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis();
+    ScrollTrigger.normalizeScroll({ allowNestedScrollOn: '[data-horizontal-scroll]' });
 
+    // Lenis smooth scroll is desktop-only — touch devices use native scroll
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return () => { ScrollTrigger.normalizeScroll(false); };
+    }
+
+    const lenis = new Lenis({
+      prevent: (node: Element) => !!node.closest('[data-horizontal-scroll]'),
+    });
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    const lenisRaf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(lenisRaf);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
+      lenis.off('scroll', ScrollTrigger.update);
+      gsap.ticker.remove(lenisRaf);
       lenis.destroy();
+      ScrollTrigger.normalizeScroll(false);
     };
   }, []);
 

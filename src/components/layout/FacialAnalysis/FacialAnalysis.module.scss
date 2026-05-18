@@ -12,6 +12,23 @@
   display: flex;
   flex-direction: column;
   min-height: 85vh;
+
+  @include respond-to(md) {
+    height: 110svh;
+    min-height: 110svh;
+    background-image:
+      radial-gradient(ellipse 220% 70% at 50% 100%, rgba(60, 60, 60, 1) 0%, transparent 70%),
+      radial-gradient(ellipse 220% 80% at 50% 0%, rgba(60, 60, 60, 0.4) 0%, transparent 90%),
+      radial-gradient(ellipse 200% 60% at 50% 35%, #B0A098 0%, transparent 60%);
+  }
+
+  @include respond-to(xs) {
+    min-height: 90svh;
+    background-image:
+      radial-gradient(ellipse 220% 70% at 50% 100%, rgba(60, 60, 60, 1) 0%, transparent 70%),
+      radial-gradient(ellipse 220% 80% at 50% 0%, rgba(60, 60, 60, 0.4) 0%, transparent 90%),
+      radial-gradient(ellipse 200% 60% at 50% 35%, #B0A098 0%, transparent 60%);
+  }
 }
 
 .header {
@@ -22,6 +39,9 @@
   position: relative;
   z-index: $z-base;
   flex-shrink: 0;
+
+  @include respond-to(md) { padding-top: $space-xl; padding-bottom: $space-md; }
+  @include respond-to(xs) { padding-top: $space-xl; padding-bottom: $space-sm; }
 }
 
 .label {
@@ -30,7 +50,7 @@
 
 .title {
   @include heading-xl;
-  color: $color-dark-text;
+  color: $color-white;
   margin-bottom: $space-md;
 }
 
@@ -42,10 +62,10 @@
 
 .body {
   font-family: $font-sans;
-  font-weight: 100;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.05em;
+  font-weight: 400;
+  font-size: clamp(14px, 0.19vw + 13.3px, 16px);
+  line-height: 1.5;
+  letter-spacing: 0;
   text-align: center;
   color: $color-dark-secondary;
   max-width: 500px;
@@ -71,16 +91,24 @@
   height: 1020px;
 
   @include respond-to(lg) {
-    top: 60px;
-    width: 620px;
-    height: 700px;
+    top: -60px;
+    width: 740px;
+    height: 840px;
   }
 
   @include respond-to(md) {
-    top: 40px;
+    top: auto;
+    bottom: -360px;
     width: 100%;
-    max-width: 560px;
-    height: 620px;
+    max-width: 860px;
+    height: 1060px;
+  }
+
+  @include respond-to(xs) {
+    top: auto;
+    bottom: -40px;
+    max-width: 480px;
+    height: 600px;
   }
 }
 
@@ -96,6 +124,7 @@
 .chartColorPalette,
 .chartFacialThirds,
 .chartHalfBlocks {
+  display: block;
   position: absolute;
   pointer-events: none;
   user-select: none;
@@ -106,6 +135,20 @@
   top: 350px;
   width: 286px;
   height: 338px;
+
+  @include respond-to(md) {
+    left: 70px;
+    top: 553px;
+    width: 240px;
+    height: 282px;
+  }
+
+  @include respond-to(xs) {
+    left: 16px;
+    top: 513px;
+    width: 170px;
+    height: 200px;
+  }
 }
 
 .chartBellCurve {
@@ -113,6 +156,20 @@
   top: 350px;
   width: 286px;
   height: 198px;
+
+  @include respond-to(md) {
+    left: 70px;
+    top: 260px;
+    width: 240px;
+    height: 167px;
+  }
+
+  @include respond-to(xs) {
+    left: 16px;
+    top: 300px;
+    width: 170px;
+    height: 118px;
+  }
 }
 
 .chartBarGraph {
@@ -120,6 +177,22 @@
   top: 526px;
   width: 286px;
   height: 157px;
+
+  @include respond-to(md) {
+    left: auto;
+    right: 70px;
+    top: 558px;
+    width: 240px;
+    height: 131px;
+  }
+
+  @include respond-to(xs) {
+    left: auto;
+    right: 16px;
+    top: 514px;
+    width: 170px;
+    height: 93px;
+  }
 }
 
 .chartColorPalette {
@@ -127,6 +200,22 @@
   top: 350px;
   width: 282px;
   height: 338px;
+
+  @include respond-to(md) {
+    left: auto;
+    right: 70px;
+    top: 260px;
+    width: 240px;
+    height: 288px;
+  }
+
+  @include respond-to(xs) {
+    left: auto;
+    right: 16px;
+    top: 300px;
+    width: 170px;
+    height: 204px;
+  }
 }
 
 .chartFacialThirds {
@@ -134,6 +223,22 @@
   top: 350px;
   width: 353px;
   height: 166px;
+
+  @include respond-to(md) {
+    left: auto;
+    right: 70px;
+    top: 699px;
+    width: 240px;
+    height: 113px;
+  }
+
+  @include respond-to(xs) {
+    left: auto;
+    right: 16px;
+    top: 617px;
+    width: 170px;
+    height: 80px;
+  }
 }
 
 .chartHalfBlocks {
@@ -141,4 +246,18 @@
   top: 558px;
   width: 285px;
   height: 127px;
+
+  @include respond-to(md) {
+    left: 70px;
+    top: 437px;
+    width: 240px;
+    height: 106px;
+  }
+
+  @include respond-to(xs) {
+    left: 16px;
+    top: 428px;
+    width: 170px;
+    height: 75px;
+  }
 }

@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
 // SVG viewBox: -11.5 -11.5 1012 414
 // Left box:  x[0,344],  y[0,391] → 34% of 988 content width
@@ -19,6 +20,10 @@
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  .svgPortrait {
+    display: none;
   }
 }
 
@@ -64,4 +69,56 @@
   object-fit: cover;
   object-position: center top;
   top: 26px !important;
+}
+
+// ─── Portrait / mobile layout (≤425px — tablet stays landscape) ──────────────
+// Container takes portrait aspect ratio (inverse of the SVG's landscape ratio).
+// SVG viewBox 1012×414: after rotate(90deg) visual dims become 414×1012,
+// then scale(1012/414 ≈ 2.447) stretches it back to fill the portrait container.
+// Panels grid switches from columns to rows to match the rotated layout.
+@include respond-to(xs) {
+  .comparison {
+    aspect-ratio: 414 / 1012;
+  }
+
+  .svgFrame {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .svgLandscape {
+      display: none;
+    }
+
+    .svgPortrait {
+      display: block;
+      flex-shrink: 0;
+      width: 100%;
+      height: auto;
+      transform-origin: center;
+      transform: rotate(90deg) scale(2.447);
+    }
+  }
+
+  .panel {
+    margin-inline: 16px;
+  }
+
+  .panelBefore {
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+
+  .panelAfter {
+    margin-top: 10px;
+    margin-bottom: 16px;
+  }
+
+  .panels {
+    grid-template-columns: 1fr;
+    grid-template-rows: 434fr 120fr 434fr;
+  }
 }

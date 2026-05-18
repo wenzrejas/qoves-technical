@@ -102,7 +102,8 @@ export default function RootLayout({
       className={`${ppNeueMontreal.variable} ${zagmaMono.variable}`}
     >
       <body suppressHydrationWarning>
-        <SmoothScroll>{children}</SmoothScroll>
+        {/* <SmoothScroll>{children}</SmoothScroll> */}
+        {children}
       </body>
     </html>
   );

@@ -34,7 +34,11 @@ export default function FacialAnalysis() {
         duration: 0.8,
         stagger: 0.12,
       }).from(imageRef.current, { y: 40, opacity: 0, duration: 1.2, ease: 'power2.out' }, '-=0.5');
+    }, sectionRef);
 
+    // Parallax scrub causes jank on touch devices — desktop only
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 769px)', () => {
       gsap.fromTo(
         imageRef.current,
         { scale: 1 },
@@ -49,9 +53,12 @@ export default function FacialAnalysis() {
           },
         }
       );
-    }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      mm.revert();
+    };
   }, []);
 
   return (

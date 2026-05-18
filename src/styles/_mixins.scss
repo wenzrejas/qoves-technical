@@ -2,11 +2,11 @@
 
 // ─── Responsive ────────────────────────────────────────────────────────────────
 @mixin respond-to($bp) {
-  @if $bp == sm    { @media (max-width: #{$bp-sm})  { @content; } }
+  @if      $bp == xs    { @media (max-width: #{$bp-xs})  { @content; } }
   @else if $bp == md    { @media (max-width: #{$bp-md})  { @content; } }
   @else if $bp == lg    { @media (max-width: #{$bp-lg})  { @content; } }
   @else if $bp == xl    { @media (max-width: #{$bp-xl})  { @content; } }
-  @else if $bp == min-lg { @media (min-width: #{$bp-lg}) { @content; } }
+  @else if $bp == min-lg { @media (min-width: calc(#{$bp-lg} + 1px)) { @content; } }
 }
 
 // ─── Container ─────────────────────────────────────────────────────────────────
@@ -17,6 +17,7 @@
 
   @include respond-to(lg) { padding-inline: $space-lg; }
   @include respond-to(md) { padding-inline: $space-md; }
+  @include respond-to(xs) { padding-inline: $space-sm; }
 }
 
 // ─── Flex helpers ──────────────────────────────────────────────────────────────
@@ -49,18 +50,18 @@
 
 @mixin heading-xl {
   font-family: $font-sans;
-  font-size: 48px;
+  font-size: clamp(32px, 2.07vw + 24px, 48px);
   font-weight: 400;
-  line-height: 56px;
+  line-height: 1.17;
   letter-spacing: -0.015em;
   color: rgba(35, 49, 55, 1);
 }
 
 @mixin heading-lg {
   font-family: $font-sans;
-  font-size: 40px;
+  font-size: clamp(30px, 1.5vw + 24.5px, 40px);
   font-weight: 400;
-  line-height: 48px;
+  line-height: 1.2;
   letter-spacing: -0.015em;
   color: #233137;
 }
