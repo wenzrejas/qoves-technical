@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Qoves — Technical Task
+
+A pixel-perfect recreation of the Qoves facial analysis SaaS landing page, built as a portfolio technical task.
+
+## Tech Stack
+
+- **Framework** — Next.js
+- **Language** — TypeScript
+- **Styling** — SCSS Modules with shared variables and mixins
+- **Animation** — GSAP + ScrollTrigger
+- **Smooth Scroll** — Lenis (desktop only)
+- **Icons** — React Feather
+- **Formatting** — Prettier
+
+## Sections
+
+| Section | Description |
+|---|---|
+| **Hero** | Animated SVG bracket frame with before/after images and step indicators |
+| **Facial Analysis** | Dark-bg section with face image, chart overlays, and scroll parallax |
+| **FAQ** | Accordion with GSAP-animated open/close per category and question |
+| **Insecurity** | Sticky video background with two scroll panels — entrance cards + pinned philosophy scroll |
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── globals.scss       # Reset and global styles
+│   ├── layout.tsx         # Root layout, fonts, SmoothScroll
+│   └── page.tsx           # Page composition
+├── components/
+│   ├── layout/            # Section components
+│   │   ├── Hero/
+│   │   ├── FacialAnalysis/
+│   │   ├── FAQ/
+│   │   └── InsecuritySection/
+│   └── ui/
+│       ├── Badge/          # Reusable badge/label pill
+│       └── SmoothScroll/   # Lenis + GSAP ScrollTrigger integration
+├── data/                   # Static content (hero steps, FAQ, insecurity cards)
+├── lib/
+│   └── gsap.ts             # Single GSAP plugin registration point
+└── styles/
+    ├── _variables.scss     # Design tokens (colors, spacing, typography, easing)
+    └── _mixins.scss        # Reusable mixins (container, respond-to, body-text, etc.)
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run format` | Format all `src` files with Prettier |
 
-## Learn More
+## Fonts
 
-To learn more about Next.js, take a look at the following resources:
+Custom local fonts loaded via `next/font/local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **PP Neue Montreal** — primary sans-serif (Thin, Book, Medium, Bold, Italic weights)
+- **Zagma Mono** — monospace used for labels and badges
