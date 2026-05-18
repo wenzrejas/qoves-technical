@@ -16,39 +16,39 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         q: 'What is Qoves?',
-        a: 'Qoves is a personalised facial analysis service that helps you understand your unique facial features and create a science-backed glow-up protocol tailored to you.',
+        a: 'Qoves is the world’s best platform to improve your looks and achieve a real facial transformation without surgery. We provide you, from the comfort of your home, with a personalized facial analysis and transformation plan based on over 2,000 academic studies.',
       },
       {
         q: 'What is this for?',
-        a: 'This service helps you identify actionable improvements to your appearance through evidence-based lifestyle, skincare, and structural recommendations.',
+        a: 'Qoves is for anyone who wants to improve their looks with science-based methods, without surgery.',
       },
       {
         q: 'What benefit will I receive?',
-        a: 'You will receive a comprehensive facial analysis, a visualisation of your potential, and a detailed personalised protocol to help you reach it.',
+        a: 'You’ll receive an updated version of all the above once a year to make sure you maintain your results and stay the best-looking version of yourself for years to come.',
       },
       {
         q: 'How does it work?',
-        a: 'You upload photos of yourself, our system analyses 160+ facial features, and our experts produce a personalised plan within a few days.',
+        a: 'Tell us about yourself: Demographics, lifestyle, and goals; Upload your photos: Six specific angles of your face and head; Get your results: Within 28 days, you’ll receive your full protocol and visuals of your best-looking self.',
       },
       {
         q: 'How long will it take for me to receive results?',
-        a: 'Most customers receive their analysis within 3–5 business days after submitting their photos.',
+        a: 'It takes up to 28 days from the moment you upload your photos for our team to prepare your analysis and protocol.',
       },
       {
         q: 'Is this a one-time input or a continuous service?',
-        a: 'We offer both: a one-time analysis report, and an ongoing subscription to track your progress over time.',
+        a: 'This is an ongoing service that you can cancel at any time. After your initial plan, you’ll receive updated protocols, analyses, and visualizations every year. You’ll also have unlimited access to message our aesthetic team support whenever you need.',
       },
       {
         q: 'How often do I need to submit photos?',
-        a: 'For subscribers, we recommend re-submitting photos every 8–12 weeks to track meaningful progress.',
+        a: 'Once a year to update your analysis, review your protocol, and track your progress.',
       },
       {
         q: 'What makes Qoves different from beauty apps or filters?',
-        a: 'Unlike filters, we provide an honest, data-driven assessment and realistic, medically-informed pathways—not digital illusions.',
+        a: 'We don’t rely on filters or gimmicks. We’ve trained our models to achieve best-in-class precision in three main areas.',
       },
       {
         q: 'Can I only get results without surgery?',
-        a: 'Absolutely. Our protocols focus exclusively on non-surgical improvements: skincare, lifestyle, nutrition, and light procedures.',
+        a: 'Yes. The many small changes we recommend, combined together, compound to produce dramatic results. Every transformation you see on this page can be achieved without surgery—indeed, for most people, surgery is unnecessary and often counterproductive. Everyone can maximize their attractiveness and get impressive results without surgical intervention.',
       },
     ],
   },
@@ -57,12 +57,12 @@ export const faqCategories: FAQCategory[] = [
     title: 'About the Analysis',
     items: [
       {
-        q: 'What facial features do you assess?',
-        a: 'We assess over 160 features including symmetry, proportions, skin quality, structural bone anatomy and more.',
+        q: 'What’s included in the facial analysis?',
+        a: 'Your facial analysis gives you a clear understanding of all your features and how they affect your overall aesthetics. We provide a comprehensive breakdown of your face as a whole—its symmetry, proportions, masculinity or femininity, and each individual feature. This isn’t just about maximizing attractiveness, but also about understanding how certain features can make you look more dominant, approachable, friendly, cute, and so on.',
       },
       {
-        q: 'Is my data kept private?',
-        a: 'Yes, all submitted photos are processed under strict privacy protocols and never shared with third parties.',
+        q: 'How accurate is your analysis?',
+        a: 'Our analysis is currently state-of-the-art in the aesthetics industry. The measurements are accurate to the nearest millimeter, and the level of detail and comprehensiveness goes far beyond what even the top aesthetic clinics can offer.',
       },
     ],
   },
@@ -71,8 +71,8 @@ export const faqCategories: FAQCategory[] = [
     title: 'About the Protocol',
     items: [
       {
-        q: 'What does the protocol include?',
-        a: 'Your protocol covers skincare routines, diet modifications, sleep optimisation, and targeted exercises based on your unique analysis.',
+        q: 'What is the protocol?',
+        a: 'Your protocol is a step-by-step glow-up plan that outlines how to improve your facial aesthetics without surgery. It includes personalized recommendations on how to improve each of your facial features along with a visual preview of how each one could impact your appearance.',
       },
     ],
   },
@@ -81,8 +81,8 @@ export const faqCategories: FAQCategory[] = [
     title: 'Experience & Use',
     items: [
       {
-        q: 'What devices can I use?',
-        a: 'Our web platform works on all modern desktop and mobile browsers.',
+        q: 'How do I get started?',
+        a: 'You can get started today directly from our website. After completing your payment, you’ll create a Qoves account. From there, you can fill out the questionnaire and upload your photos directly inside your account. Our team will then prepare your analysis and personalized protocol, which will be ready in 28 days.',
       },
     ],
   },
@@ -92,7 +92,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         q: 'How much does it cost?',
-        a: 'Plans start from $49 for a one-time report. Subscription plans are available from $29/month.',
+        a: 'Qoves costs $150 per year.',
       },
     ],
   },
@@ -101,8 +101,8 @@ export const faqCategories: FAQCategory[] = [
     title: 'Privacy & Data',
     items: [
       {
-        q: 'Will you share my photos?',
-        a: 'Never. Your photos and personal data are fully encrypted and only used for your analysis.',
+        q: 'Will my photos and data be kept private?',
+        a: 'Yes. Everything is encrypted and stored securely, and only our essential staff members can access your photos. We would never share your pictures publicly on social media or anywhere else.',
       },
     ],
   },
@@ -111,8 +111,8 @@ export const faqCategories: FAQCategory[] = [
     title: 'Mindset & Philosophy',
     items: [
       {
-        q: 'Will this make me feel insecure?',
-        a: 'Our approach is empowering, not critical. We help you understand your features with context and compassion.',
+        q: 'Do I really need this to look better?',
+        a: 'You can still get good results on your own by doing your own research and experimenting; Qoves just makes it a lot easier, faster, safer, and more likely to work. Really, it’s unlikely that your independent research will come up with recommendations as effective as our subject matter experts. Further, frankly, you could probably make enough money to purchase a Qoves analysis in less time than it would take you to do sufficient facial aesthetics research yourself.',
       },
     ],
   },
@@ -121,8 +121,8 @@ export const faqCategories: FAQCategory[] = [
     title: 'Practical Concerns',
     items: [
       {
-        q: 'What lighting do I need for photos?',
-        a: 'Natural, even lighting works best. Avoid harsh shadows or ring-light glare.',
+        q: 'I don’t want surgery - can this still help me?',
+        a: 'Absolutely. We specialize in non-surgical improvements.',
       },
     ],
   },
@@ -131,8 +131,8 @@ export const faqCategories: FAQCategory[] = [
     title: 'About Support',
     items: [
       {
-        q: 'How do I contact support?',
-        a: 'Email us at hello@qoves.com or use the chat in the bottom-right corner.',
+        q: 'Can I really talk to your team?',
+        a: 'Yes. You can message our aesthetic team, anytime via your dashboard.',
       },
     ],
   },

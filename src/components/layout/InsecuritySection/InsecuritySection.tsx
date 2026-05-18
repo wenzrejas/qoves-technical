@@ -94,20 +94,20 @@ export default function InsecuritySection() {
         .from(vainRef.current, { y: 80, opacity: 0, duration: 1.5 }, 0)
 
         // ── Left card  (2.0 → 7.0) ──
-        .fromTo(considerRef.current, { y: '120vh' }, { y: '-120vh', duration: 5, ease: 'none' }, 2.0)
-        .fromTo(considerRef.current, { opacity: 0 }, { opacity: 1,   duration: 2.5, ease: 'none' }, 2.0)
+        .fromTo(considerRef.current, { y: '100vh' }, { y: '-120vh', duration: 5, ease: 'none' }, 1.0)
+        .fromTo(considerRef.current, { opacity: 0 }, { opacity: 1,   duration: 2.5, ease: 'none' }, 1.0)
         .to(considerRef.current, { opacity: 0, duration: 2.5, ease: 'none' }, 4.5)
 
         // ── Right card (3.5 → 8.5) — offset 1.5 so both overlap on screen ──
-        .fromTo(keyRef.current, { y: '120vh' }, { y: '-120vh', duration: 5, ease: 'none' }, 3.5)
-        .fromTo(keyRef.current, { opacity: 0 }, { opacity: 1,   duration: 2.5, ease: 'none' }, 3.5)
+        .fromTo(keyRef.current, { y: '100vh' }, { y: '-120vh', duration: 5, ease: 'none' }, 3)
+        .fromTo(keyRef.current, { opacity: 0 }, { opacity: 1,   duration: 2.5, ease: 'none' }, 3)
         .to(keyRef.current, { opacity: 0, duration: 2.5, ease: 'none' }, 6.0)
 
         // ── Vain exits after right card clears (8.5) ──
-        .to(vainRef.current, { y: -80, opacity: 0, duration: 1.5 }, 8.5)
+        .to(vainRef.current, { y: -80, opacity: 0, duration: 1.5 }, 6)
 
         // ── Final hold before pin releases ──
-        .to({}, { duration: 0.5 }, 10.0);
+        .to({}, { duration: 0.5 }, 8.0);
     }, sectionRef);
 
     return () => ctx.revert();
@@ -137,7 +137,7 @@ export default function InsecuritySection() {
             <div className={styles.content}>
               <h2 ref={headingRef} className={styles.heading}>
                 <span className={styles.headingLine}>Will analyzing my face</span>
-                <span className={styles.headingLine}>Make me insecure?</span>
+                <span className={`${styles.headingLine} ${styles.headingLine2}`}>Make me insecure?</span>
               </h2>
               <p ref={bodyRef} className={styles.body}>
                 Most insecurity comes from uncertainty-not knowing if your concerns

@@ -88,7 +88,7 @@ const zagmaMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Qoves — Get Your Personalised Plan',
+  title: 'QOVES — Get Your Personalised Plan',
   description:
     'Understand your facial features and start your glow-up today with a proven action plan. No plastic surgery needed.',
 };

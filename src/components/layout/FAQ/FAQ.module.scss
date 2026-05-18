@@ -17,7 +17,7 @@ $active-border: rgba(255, 255, 255, 0.18);
   @include container;
   display: flex;
   flex-direction: column;
-  gap: $space-xl;
+  gap: $space-lg;
 }
 
 // ─── Header ────────────────────────────────────────────────────────────────────
@@ -80,7 +80,11 @@ $active-border: rgba(255, 255, 255, 0.18);
 }
 
 .categoryOpen {
-  background: $color-active;
+  background-color: $color-active;
+  background-image:
+    radial-gradient(ellipse at 50% 100%, rgba(60, 60, 60, 0.1) 0%, transparent 80%),
+    radial-gradient(ellipse 80% 80% at 50% 0%, rgba(60, 60, 60, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse at 50% 28%, #B0A098 0%, transparent 40%);
   border-radius: 8px;
   border-bottom-color: transparent;
   padding: 8px;
@@ -148,7 +152,7 @@ $active-border: rgba(255, 255, 255, 0.18);
 }
 
 .qaItem {
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 6px;
   padding: 12px;
   transition: border-color $duration-base $ease-smooth;
@@ -171,12 +175,11 @@ $active-border: rgba(255, 255, 255, 0.18);
   align-items: center;
   justify-content: space-between;
   gap: $space-sm;
-  padding-bottom: 16px;
   font-family: $font-sans;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
   color: $color-text-secondary;
   text-align: left;
 
@@ -208,13 +211,13 @@ $active-border: rgba(255, 255, 255, 0.18);
 }
 
 .qaAnswer {
-  padding: 2px 0 16px 16px;
+  padding-top: 12px;
   font-family: $font-sans;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 20px;
-  letter-spacing: 0;
+  letter-spacing: 0.06em;
   color: $color-text-secondary;
-  max-width: 640px;
+  max-width: 95%;
   transition: color $duration-base $ease-smooth;
 }

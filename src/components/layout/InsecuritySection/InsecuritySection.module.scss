@@ -72,6 +72,7 @@
 // ─── Badge ─────────────────────────────────────────────────────────────────────
 .badgeWrap {
   flex-shrink: 0;
+  padding-inline: $space-md;
 }
 
 // ─── Panel 1: text content ─────────────────────────────────────────────────────
@@ -81,6 +82,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: $space-md;
+  padding-inline: $space-md;
 }
 
 .heading {
@@ -97,17 +99,21 @@
   font-weight: 400;
   letter-spacing: -0.015em;
   line-height: 48px;
-  color: $color-dark-text;
+  color: $color-white;
+}
+
+.headingLine2 {
+  opacity: 0.7;
 }
 
 .body {
   font-family: $font-sans;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 24px;
-  letter-spacing: 0;
-  color: $color-dark-text;
-  max-width: 400px;
+  letter-spacing: 0.05em;
+  color: $color-white;
+  max-width: 500px;
 }
 
 // ─── Panel 1: cards ────────────────────────────────────────────────────────────
@@ -167,7 +173,7 @@
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -198,6 +204,7 @@
 // ─── Glass cards (consider + key) — absolutely positioned on sides ─────────────
 .glassCard {
   position: absolute;
+  z-index: 1;
   width: 443px;
   height: 400px;
   top: calc(50% - 200px);
@@ -236,9 +243,9 @@
   background: rgba(255, 255, 255, 0.1);
   font-family: $font-sans;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 20px;
-  letter-spacing: 0;
+  letter-spacing: 0.06em;
   color: #ffffff;
 }
 
@@ -250,6 +257,8 @@
   flex-direction: column;
   gap: $space-md;
   text-align: center;
+  position: relative;
+  z-index: 0;
 }
 
 .vainHeading {
@@ -279,11 +288,11 @@
 .vainBody {
   font-family: $font-sans;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 20px;
-  letter-spacing: 0;
+  letter-spacing: 0.06em;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 460px;
+  max-width: 560px;
   margin-inline: auto;
 }
