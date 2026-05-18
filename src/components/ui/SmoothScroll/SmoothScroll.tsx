@@ -9,8 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    ScrollTrigger.normalizeScroll({ allowNestedScrollOn: '[data-horizontal-scroll]' });
-
     // Lenis smooth scroll is desktop-only — touch devices use native scroll
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       return () => { ScrollTrigger.normalizeScroll(false); };
